@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+    --background: 0.09 0.003 285;
+    --foreground: 0.95 0.006 285;
+    --card: 0.12 0.004 285;
+    --card-foreground: 0.95 0.006 285;
+    --popover: 0.13 0.005 285;
+    --popover-foreground: 0.95 0.006 285;
+    --primary: 0.65 0.28 310;
+    --primary-foreground: 0.09 0.003 285;
+    --secondary: 0.16 0.005 285;
+    --secondary-foreground: 0.85 0.006 285;
+    --muted: 0.15 0.004 285;
+    --muted-foreground: 0.62 0.01 285;
+    --accent: 0.46 0.26 280;
+    --accent-foreground: 0.95 0.006 285;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.22 0.007 285;
+    --input: 0.18 0.005 285;
+    --ring: 0.65 0.28 310;
+    --chart-1: 0.65 0.28 310;
+    --chart-2: 0.46 0.26 280;
+    --chart-3: 0.71 0.18 40;
+    --chart-4: 0.66 0.24 350;
+    --chart-5: 0.7 0.18 40;
+    --sidebar: 0.11 0.003 285;
+    --sidebar-foreground: 0.95 0.006 285;
+    --sidebar-primary: 0.65 0.28 310;
+    --sidebar-primary-foreground: 0.09 0.003 285;
+    --sidebar-accent: 0.14 0.004 285;
+    --sidebar-accent-foreground: 0.85 0.006 285;
+    --sidebar-border: 0.22 0.007 285;
+    --sidebar-ring: 0.65 0.28 310;
+
+    /* Music app custom tokens */
+    --music-purple: 0.46 0.26 280;
+    --music-magenta: 0.65 0.28 310;
+    --music-pink: 0.66 0.24 350;
+    --music-orange: 0.71 0.18 40;
+    --music-surface: 0.115 0.004 285;
+    --music-surface-elevated: 0.14 0.005 285;
+  }
+
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+    overflow: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.28 0.007 285);
+    border-radius: 99px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.38 0.01 285);
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    background: linear-gradient(135deg, #a855f7, #ec4899, #f97316);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-accent {
+    background: linear-gradient(135deg, #6a2ff0, #d24bff, #ff4da6, #ff7a3d);
+  }
+
+  .gradient-arijit {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+  }
+  .gradient-jubin {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+  }
+  .gradient-shreya {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+  }
+  .gradient-diljit {
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+  }
+  .gradient-apdhillon {
+    background: linear-gradient(135deg, #fa709a, #fee140);
+  }
+  .gradient-sidhu {
+    background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+  }
+
+  .glass {
+    background: oklch(0.12 0.004 285 / 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .glass-border {
+    border: 1px solid oklch(0.28 0.007 285 / 0.5);
+  }
+
+  .ambient-blob {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .player-progress::-webkit-slider-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+  }
+
+  .player-progress::-webkit-slider-runnable-track {
+    border-radius: 99px;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 oklch(0.65 0.28 310 / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 0 8px oklch(0.65 0.28 310 / 0);
+    }
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .spin-slow {
+    animation: spin-slow 8s linear infinite;
+  }
+
+  @keyframes equalizer {
+    0%,
+    100% {
+      height: 4px;
+    }
+    50% {
+      height: 16px;
+    }
+  }
+}
